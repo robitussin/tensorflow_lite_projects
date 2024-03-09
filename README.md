@@ -1,3 +1,4 @@
 # tensorflow_lite_projects
 
-Applied Machine Learning
+These sample applications will teach students how to integrate machine learning models to mobile applications
+
