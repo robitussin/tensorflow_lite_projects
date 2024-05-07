@@ -42,11 +42,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
 
         camera = findViewById(R.id.button);
         gallery = findViewById(R.id.button2);
@@ -60,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
                     Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cameraIntent, 3);
                 }
                 else{
                     requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
@@ -67,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Camera Event Listener
+        // Phone Gallery Event Listener
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
